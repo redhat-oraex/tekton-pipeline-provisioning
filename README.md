@@ -11,20 +11,23 @@
 - **Task 3:** Build Image
 
 # Git Clone Task
-    tasks:
-     - name: fetch-repository
-       taskRef:
-         name: git-clone
-         kind: ClusterTask
-       workspaces:
-       - name: output
-         workspace: shared-workspace
-       params:
-       - name: url
-         value: $(params.git-url)
-       - name: subdirectory
-         value: ""
-       - name: deleteExisting
-         value: "true"
-       - name: revision
-         value: $(params.git-revision)
+
+   ```yaml
+ tasks:
+  - name: fetch-repository
+    taskRef:
+      name: git-clone
+      kind: ClusterTask
+    workspaces:
+    - name: output
+      workspace: shared-workspace
+    params:
+    - name: url
+      value: $(params.git-url)
+    - name: subdirectory
+      value: ""
+    - name: deleteExisting
+      value: "true"
+    - name: revision
+      value: $(params.git-revision)
+   ```
