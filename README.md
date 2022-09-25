@@ -4,7 +4,7 @@
 # Tekton Pipeline Provisioning
 
 - **Task 1:** Clone App Repository
-  - Apparently openshift pipelines already comes with a task ready to perform this objective. Do it like [this](#Git-Clone-Task)
+  - Apparently openshift pipelines already comes with a task ready to perform this objective. Do it like [this](#Git-Clone-Task).
 - **Task 2:** Maven Build
   - Build .war from source code
   - Send .war to Nexus
