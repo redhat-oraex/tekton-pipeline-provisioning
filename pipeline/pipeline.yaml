@@ -1,1 +1,47 @@
-
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: hello-world-pipeline
+spec:
+  params:
+    - name: APP_SOURCE_GIT
+      type: string
+      description: The application git repository
+      default: https://github.com/redhat-oraex/tekton-pipeline-demo-app
+    - name: APP_SOURCE_REVISION
+      type: string
+      description: The application git revision
+      default: master
+    - name: APP_IMAGE_TAG
+      type: string
+      default: latest
+      description: The application image tag to build
+  workspaces:
+  - name: workspace
+  - name: maven-settings
+  results:
+    - name: APP_IMAGE_DIGETST
+      description: The image digest built in the pipeline
+      value: $(tasks.build-image.results.IMAGE_DIGEST)
+    - name: APP_IMAGE_URL
+      description: The image url built in the pipeline
+      value: $(tasks.build-image.results.IMAGE_NAME)
+  tasks:
+  - name: source-clone
+    taskRef:
+      name: git-clone
+      kind: ClusterTask
+    workspaces:
+    - name: output
+      workspace: workspace
+    params:
+    - name: url
+      value: $(params.APP_SOURCE_GIT)
+    - name: revision
+      value: $(params.APP_SOURCE_REVISION)
+    - name: depth
+      value: "0"
+    - name: subdirectory
+      value: tekton-pipeline-demo-app
+    - name: deleteExisting
+      value: "true"
