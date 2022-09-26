@@ -1,14 +1,14 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: maven-build-task
+  name: maven-build
 spec:
   workspaces:
   - name: main-workspace
   steps:
   - name: maven-package
     image: sdaschner/maven-jdk14:quarkus-deps-1.5.1-b5
-    workingDir: "$(workspaces.main-workspace.path)/tekton-pipeline-demo-app"
+    workingDir: "$(workspaces.main-workspace.path)/tekton-pipeline-demo-app/helloworld"
     command:
     - /usr/bin/mvn
     args:

@@ -3,8 +3,6 @@ kind: Task
 metadata:
   name: clone-git-repo
 spec:
-  params:
-  - name: appGitUrl
   workspaces:
   - name: main-workspace
   steps:
@@ -13,4 +11,4 @@ spec:
     workingDir: "$(workspaces.main-workspace.path)"
     script: |
       #!/usr/bin/env sh
-      git clone $(params.appGitUrl)
+      git clone https://github.com/redhat-oraex/tekton-pipeline-demo-app
