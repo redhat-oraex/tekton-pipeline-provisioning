@@ -4,6 +4,7 @@
 # Tekton Pipeline Provisioning
 
 - **Task 1:** clone-git-repo
+  - Put the source code in a workspace. 
 - **Task 2:** maven-build-task
   - Build .war from source code
 - **Task 3:** nexus-deploy
