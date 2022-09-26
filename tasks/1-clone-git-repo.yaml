@@ -8,7 +8,7 @@ spec:
   steps:
   - name: git-clone
     image: alpine/git:v2.26.2
-    workingDir: "$(workspaces.main-workspace.path)"
+    workingDir: /workspace/main-workspace
     script: |
       #!/usr/bin/env sh
       git clone https://github.com/redhat-oraex/tekton-pipeline-demo-app
