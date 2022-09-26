@@ -5,6 +5,8 @@ metadata:
 spec:
   workspaces:
   - name: main-workspace
+    persistentVolumeClaim:
+      claimName: main-workspace-pvc
   tasks:
   - name: clone-git-repo-pipeline
     taskRef:
