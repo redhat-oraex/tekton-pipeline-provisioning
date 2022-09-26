@@ -5,16 +5,22 @@ metadata:
 spec:
   workspaces:
   - name: main-workspace
-    persistentVolumeClaim:
-      claimName: main-workspace-pvc
+
   tasks:
   - name: clone-git-repo-pipeline
     taskRef:
       name: clone-git-repo
       kind: Task
+    workspaces:
+    - name: main-workspace
+      workspace: main-workspace
+
   - name: maven-build-pipeline
     taskRef:
       name: maven-build
       kind: Task
+    workspaces:
+    - name: main-workspace
+      workspace: main-workspace
     runAfter:
     - clone-git-repo-pipeline
