@@ -3,31 +3,9 @@
 
 # Tekton Pipeline Provisioning
 
-- **Task 1:** Clone App Repository
-  - Apparently openshift pipelines already comes with a task ready to perform this objective. Do it like [this](#Git-Clone-Task).
-- **Task 2:** Maven Build
+- **Task 1:** clone-git-repo
+- **Task 2:** maven-build-task
   - Build .war from source code
+- **Task 3:** nexus-deploy
   - Send .war to Nexus
-- **Task 3:** Build Image
-
-# Git Clone Task
-
-   ```yaml
- tasks:
-  - name: fetch-repository
-    taskRef:
-      name: git-clone
-      kind: ClusterTask
-    workspaces:
-    - name: output
-      workspace: shared-workspace
-    params:
-    - name: url
-      value: $(params.git-url)
-    - name: subdirectory
-      value: ""
-    - name: deleteExisting
-      value: "true"
-    - name: revision
-      value: $(params.git-revision)
-   ```
+- **Task 4:** build-image
