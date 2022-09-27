@@ -8,4 +8,4 @@
 - **Task 2:** maven-build-and-nexus-deploy
   - Build .war from source code
   - Send .war to Nexus
-- **Task 4:** build-image
+- **Task 3:** build-image
