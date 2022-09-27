@@ -15,9 +15,9 @@ spec:
     - name: main-workspace
       workspace: main-workspace
 
-  - name: maven-build-pipeline
+  - name: maven-build-and-nexus-deploy-pipeline
     taskRef:
-      name: maven-build
+      name: maven-build-and-nexus-deploy
       kind: Task
     workspaces:
     - name: main-workspace
