@@ -10,6 +10,6 @@ spec:
     image: quay.io/siamaksade/jenkins-agent-maven-node:4.6
     workingDir: /workspace/main-workspace/tekton-pipeline-demo-app/helloworld
     script: |
-      #!/bin/bash
+      #!/bin/bash      
       mvn -s ../configuration/cicd-settings-nexus3.xml install -Denforcer.skip=true -DskipTests=true
       mvn -s ../configuration/cicd-settings-nexus3.xml deploy -Denforcer.skip=true -DskipTests=true -DaltReleaseDeploymentRepository=nexus::default::http://sonatype-nexus-service:8081/repository/maven-releases -DaltSnapshotDeploymentRepository=nexus::default::http://sonatype-nexus-service:8081/repository/maven-snapshots
