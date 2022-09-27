@@ -12,3 +12,4 @@ spec:
     script: |
       #!/usr/bin/env sh
       git clone https://github.com/redhat-oraex/tekton-pipeline-demo-app
+      echo "Git Clone was a success!"
