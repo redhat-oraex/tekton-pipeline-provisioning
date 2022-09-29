@@ -1,1 +1,25 @@
-
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: build-image
+spec:
+  workspaces:
+  - name: main-workspace
+  steps:
+  - name: build-image-buildah
+    image: quay.io/buildah/stable
+    workingDir: /workspace/main-workspace/tekton-pipeline-demo-app/helloworld/
+    command: ['buildah', 'bud', '--tls-verify=false', '--storage-driver=vfs', '--layers', '-f', 'Dockerfile', '-t', 'quay.io/dferreira/helloworld:v1', '.']
+    volumeMounts:
+    - name: varlibcontainers
+      mountPath: "/var/lib/containers/"
+  - name: push-image-buildah
+    image: quay.io/buildah/stable
+    workingDir: /workspace/main-workspace/tekton-pipeline-demo-app/helloworld/
+    command: ['buildah', 'push', '--tls-verify=false', '--storage-driver=vfs', 'quay.io/dferreira/helloworld:v1']
+    volumeMounts:
+    - name: varlibcontainers
+      mountPath: "/var/lib/containers/"
+  volumes:
+  - name: varlibcontainers
+    emptyDir: {}

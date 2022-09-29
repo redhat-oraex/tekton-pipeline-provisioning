@@ -12,4 +12,5 @@ spec:
     script: |
       #!/usr/bin/env sh
       git clone https://github.com/redhat-oraex/tekton-pipeline-demo-app
+      chmod 777 -R ./*
       echo "Git clone was a success!"

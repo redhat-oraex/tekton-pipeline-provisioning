@@ -24,3 +24,13 @@ spec:
       workspace: main-workspace
     runAfter:
     - clone-git-repo-pipeline
+
+  - name: build-image-pipeline
+    taskRef:
+      name: build-image
+      kind: Task
+    workspaces:
+    - name: main-workspace
+      workspace: main-workspace
+    runAfter:
+    - maven-build-and-nexus-deploy-pipeline
