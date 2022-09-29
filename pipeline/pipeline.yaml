@@ -5,17 +5,15 @@ metadata:
 spec:
   workspaces:
   - name: main-workspace
-
   tasks:
-  - name: clone-git-repo-pipeline
+  - name: clone-git-repo-in-pipeline
     taskRef:
       name: clone-git-repo
       kind: Task
     workspaces:
     - name: main-workspace
       workspace: main-workspace
-
-  - name: maven-build-and-nexus-deploy-pipeline
+  - name: maven-build-and-nexus-deploy-in-pipeline
     taskRef:
       name: maven-build-and-nexus-deploy
       kind: Task
@@ -23,14 +21,13 @@ spec:
     - name: main-workspace
       workspace: main-workspace
     runAfter:
-    - clone-git-repo-pipeline
-
-  - name: build-image-pipeline
+    - clone-git-repo-in-pipeline
+  - name: build-and-push-image-in-pipeline
     taskRef:
-      name: build-image
+      name: build-and-push-image
       kind: Task
     workspaces:
     - name: main-workspace
       workspace: main-workspace
     runAfter:
-    - maven-build-and-nexus-deploy-pipeline
+    - maven-build-and-nexus-deploy-in-pipeline
