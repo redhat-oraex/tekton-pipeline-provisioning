@@ -3,6 +3,12 @@
 
 # Tekton Pipeline Provisioning
 
+## Requirements
+- A namespace named "oraex-tekton-pipeline".
+- A Nexus repository.
+
+
+## Tasks
 - **Task 1:** clone-git-repo
   - Put the source code in a workspace. 
 - **Task 2:** maven-build-and-nexus-deploy
