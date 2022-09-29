@@ -6,6 +6,7 @@
 ## Requirements
 - A namespace named "oraex-tekton-pipeline".
 - A Nexus repository.
+- Preencher o arquivo "infrastructure/config.json" com suas credencias do "quay.io" e "registry.redhat.io".
 
 
 ## Tasks
