@@ -1,0 +1,10 @@
+{
+	"auths": {
+		"quay.io": {
+			"auth": "USER:PASSWORD (BASE64 ENCODED)"
+		},
+		"registry.redhat.io": {
+			"auth": "USER:PASSWORD (BASE64 ENCODED)"
+		}
+	}
+}

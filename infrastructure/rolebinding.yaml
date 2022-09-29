@@ -1,0 +1,13 @@
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: oraex-pipeline-role-binding
+  namespace: oraex-tekton-pipeline
+subjects:
+  - kind: ServiceAccount
+    name: pipeline
+    namespace: oraex-tekton-pipeline
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: admin
