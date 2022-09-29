@@ -6,6 +6,7 @@
 - **Task 1:** clone-git-repo
   - Put the source code in a workspace. 
 - **Task 2:** maven-build-and-nexus-deploy
-  - Build .war from source code
-  - Send .war to Nexus
-- **Task 3:** build-image
+  - Build .war from source code and send it to Nexus
+- **Task 3:** build-and-push-image
+  - Build image with .war deployed inside it
+  - Push image to quay.io
